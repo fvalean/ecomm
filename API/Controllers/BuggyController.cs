@@ -1,3 +1,4 @@
+using API.Errors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -7,7 +8,7 @@ namespace API.Controllers
         [HttpGet("notfound")]
         public ActionResult GetNotFoundRequest()
         {
-            return NotFound();
+            return NotFound(new ApiResponse(404));
         }
 
         [HttpGet("servererror")]
@@ -17,10 +18,10 @@ namespace API.Controllers
             return Ok();
         }
 
-        [HttpGet("badRequest")]
+        [HttpGet("badrequest")]
         public ActionResult GetBadRequest()
         {
-            return BadRequest();
+            return BadRequest(new ApiResponse(400));
         }
 
         [HttpGet("badrequest/{id}")]
