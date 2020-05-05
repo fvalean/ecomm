@@ -7,9 +7,15 @@ import { PagingHeaderComponent } from './components/paging-header/paging-header.
 import { PagerComponent } from './components/pager/pager.component';
 import { OrderTotalsComponent } from './order-totals/order-totals.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TextInputComponent } from './components/text-input/text-input.component';
 
 @NgModule({
-  declarations: [PagingHeaderComponent, PagerComponent, OrderTotalsComponent],
+  declarations: [
+    PagingHeaderComponent,
+    PagerComponent,
+    OrderTotalsComponent,
+    TextInputComponent,
+  ],
   imports: [
     CommonModule,
     PaginationModule.forRoot(),
@@ -25,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BsDropdownModule,
     OrderTotalsComponent,
     ReactiveFormsModule,
+    TextInputComponent,
   ],
 })
 export class SharedModule {}
