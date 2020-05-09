@@ -12,23 +12,22 @@
         </cdk-step>
         <cdk-step
           [label]="'Delivery'"
-          [completed]="checkoutForm.get('addressForm').valid"
+          [completed]="checkoutForm.get('deliveryForm').valid"
         >
           <app-checkout-delivery
             [checkoutForm]="checkoutForm"
           ></app-checkout-delivery>
         </cdk-step>
-        <cdk-step
-          [label]="'Review'"
-          [completed]="checkoutForm.get('addressForm').valid"
-        >
+        <cdk-step [label]="'Review'">
           <app-checkout-review></app-checkout-review>
         </cdk-step>
         <cdk-step
           [label]="'Payment'"
-          [completed]="checkoutForm.get('addressForm').valid"
+          [completed]="checkoutForm.get('paymentForm').valid"
         >
-          <app-checkout-payment></app-checkout-payment>
+          <app-checkout-payment
+            [checkoutForm]="checkoutForm"
+          ></app-checkout-payment>
         </cdk-step>
       </app-stepper>
     </div>
