@@ -2,6 +2,8 @@
   <div>
     <i class="fa fa-check-circle fa-5x" style="color: green;"></i>
     <h2 class="mb-4">Order submitted!</h2>
-    <button class="btn btn-outline-success">View your order</button>
+    <button class="btn btn-outline-success" routerLink="/orders/{{ order.id }}">
+      View your order
+    </button>
   </div>
 </div>
