@@ -25,6 +25,11 @@ export class BasketService {
 
   constructor(private http: HttpClient) {}
 
+  resetShippingPrice() {
+    this.shipping = 0;
+    this.calculateTotals();
+  }
+
   setShippingPrice(deliveryMethod: IDeliveryMethod) {
     this.shipping = deliveryMethod.price;
     this.calculateTotals();
