@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BasketService } from 'src/app/basket/basket.service';
 import { Observable } from 'rxjs';
 import { IBasket } from 'src/app/shared/models/basket';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-checkout-review',
@@ -11,9 +12,25 @@ import { IBasket } from 'src/app/shared/models/basket';
 export class CheckoutReviewComponent implements OnInit {
   basket$: Observable<IBasket>;
 
-  constructor(private basketService: BasketService) {}
+  constructor(
+    private basketService: BasketService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.basket$ = this.basketService.basket$;
+  }
+
+  createPaymentIntent() {
+    return this.basketService.createPaymentIntent().subscribe(
+      (response: any) => {
+        // TODO: For testing only remove later
+        this.toastr.success('Payment intent created');
+      },
+      (error) => {
+        console.log(error);
+        this.toastr.error(error.message);
+      }
+    );
   }
 }
