@@ -33,7 +33,13 @@
     <i class="fa fa-arrow-left"></i>&nbsp;Back to Review
   </button>
   <button
-    [disabled]="loading"
+    [disabled]="
+      loading ||
+      checkoutForm.get('paymentForm').invalid ||
+      !cardNumberValid ||
+      !cardExpiryValid ||
+      !cardCvcValid
+    "
     class="btn btn-outline-primary"
     (click)="submitOrder()"
   >
