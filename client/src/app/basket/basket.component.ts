@@ -15,7 +15,6 @@ export class BasketComponent implements OnInit {
   constructor(private basketService: BasketService) {}
 
   ngOnInit(): void {
-    this.basketService.resetShippingPrice();
     this.basket$ = this.basketService.basket$;
     this.basketTotal$ = this.basketService.basketTotal$;
   }
